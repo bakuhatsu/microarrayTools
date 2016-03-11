@@ -59,7 +59,7 @@ GeneSet_TAGGIT_DN <- TAGGITontology(GeneSet$DN), utputFileName = "TAGGITontology
 # Comparing UP and DOWN regulated genesets
 TAGGITplot(GeneSet$UP, GeneSet$DN, GeneSet_TAGGIT_UP, GeneSet_TAGGIT_DN, title = "")
 ## Export the image: for best results export in EPS (vector) format
-## For output like the Figure 4 in the publication, export at 400x511 resolution
+## For output like Figure 4 in the publication, export at 400x511 resolution
 ```
 ### Comparing sets of overall differentially regulated genes:
 (not separatting up- and down-regulated)
