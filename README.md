@@ -25,7 +25,7 @@ Now you should be ready to install and then load the `microarrayTools` package
 install_github("bakuhatsu/microarrayTools") # syntax for installing from GitHub: username/library
 library(microarrayTools) # To load the package
 ```
-The microarrayTools package gives you the TAGGITontology, TAGGITplot, getProbeID, and venndia functions.  TAGGITontology also makes use of a few C++ functions (requiring Rcpp) to dramatically speed up the analysis.
+The microarrayTools package gives you the TAGGITontology, TAGGITplot, getProbeID, and venndia functions.  TAGGITontology also makes use of a few custom C++ functions (requiring Rcpp) to dramatically speed up the analysis.
 
 ### Setting up lists of up-/down-regulated genes for `TAGGITontology()`:
 ```r
