@@ -69,7 +69,7 @@ TAGGITplot(GeneSet$UP, GeneSet$DN, GeneSet_TAGGIT_UP, GeneSet_TAGGIT_DN, title =
 ## For output like Figure 4 in the publication, export at 400x511 resolution
 ```
 ### Comparing sets of overall differentially regulated genes:
-(not separatting up- and down-regulated)
+(not separating up- and down-regulated)
 ```r
 #### Total differentially regulated genes (up and down combined) for two comparisons ####
 ## Create two lists as before: GeneSet_AvsB and GeneSet_CvsD
