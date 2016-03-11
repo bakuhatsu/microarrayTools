@@ -1,7 +1,7 @@
 # microarrayTools
 Tools for data analysis of microarray and other transcriptome datasets
 
-
+## Installing and loading the `microarrayTools` package:
 ```r
 ## Install and load devtools for loading packages from GitHub
 install.packages("devtools") # to allow us to install packages from GitHub
@@ -10,9 +10,11 @@ library(devtools)
 ## Install microarrayTools package including TAGGITontology, TAGGITplot, and getProbeID
 install_github("bakuhatsu/microarrayTools") # user name/library
 library(microarrayTools)
+```
+The microarrayTools package gives you the TAGGITontology, TAGGITplot, getProbeID, and venndia functions
 
-# The microarrayTools package gives you the TAGGITontology, TAGGITplot, getProbeID, and venndia functions
-
+## Setting up your lists of up- and down-regulated genes to read into `TAGGITontology`:
+```r
 #### Comparing up-regulated and down-regulated genes for a single comparison ####
 ## Create a vector of probe_ids (ex 248961_at) or AGI identifiers (ex AT5G45650)
 # UP and DOWN regulated genesets
@@ -27,7 +29,9 @@ GeneSet_UP <- row.names(subset(topTable(YourData.rma, coef=ComprisonCoef, adjust
                       sort.by="B", number=Inf, p.value = 0.05)), logFC>0) # only up-regulated genes
 GeneSet_DOWN <- row.names(subset(topTable(YourData.rma, coef=ComprisonCoef, adjust="fdr", 
                       sort.by="B", number=Inf, p.value = 0.05)), logFC<0) # only down-regulated genes
-
+```
+## Test run using the provided datasets in `GeneSetdata`:
+```r
 # Example data is provided, use the following code to load it
 data("GeneSetdata") # loads GeneSet_UP and GeneSet_DOWN objects which contain example data.
 
@@ -47,7 +51,9 @@ GeneSet_TAGGIT_DN <- TAGGITontology(GeneSet$DN), utputFileName = "TAGGITontology
 TAGGITplot(GeneSet$UP, GeneSet$DN, GeneSet_TAGGIT_UP, GeneSet_TAGGIT_DN, title = "")
 ## Export the image: for best results export in EPS (vector) format
 ## For output like the Figure 4 in the publication, export at 400x511 resolution
-
+```
+## Comparisons of two sets of overall differentially regulated genes (not separatting up- and down-regulated):
+```r
 #### Total differentially regulated genes (up and down combined) for two comparisons ####
 ## Create two lists as before: GeneSet_AvsB and GeneSet_CvsD
 
