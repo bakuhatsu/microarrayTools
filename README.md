@@ -2,25 +2,30 @@
 Tools for data analysis of microarray and other transcriptome datasets
 
 ### Installing and loading the `microarrayTools` package:
+Installing through GitHub requires the 'devtools' package, so instructions for instalalling and loading that package are provided below.
 ```r
 ## Install and load devtools for loading packages from GitHub
 install.packages("devtools") # to allow us to install packages from GitHub
 library(devtools)
+```
+Since GitHub packaged are compiled on your machine to run, you may be prompted to "install build tools" or something similar.  Follow the instructions, which will install the tools needed to compile this package.
 
-## microarrayTools also relies on the ath1121501.db package from Bioconductor 
-## Bioconductor packages cannot be automatically installed like other R dependencies.
-## Install via the code below (if you do not already have bioconductor the first install takes a while)
-## See http://bioconductor.org for more information regarding installing or using Bioconductor packages
+`microarrayTools` also relies on the `ath1121501.db` package from Bioconductor. Bioconductor packages cannot be automatically installed like other R dependencies, so you need to install `ath1121501.db` manually.  Install via the code below (if you do not already have bioconductor the first install takes a while, so be prepared).
+```r
 # try http:// if https:// URLs are not supported
 source("https://bioconductor.org/biocLite.R")
+## If you haven't previously installed Bioconductor, run the next line.
 biocLite() # Intalls Bioconductor base packages, will take a long time for a fresh install.  
+## To install the ath1121501.db package
 biocLite("ath1121501.db")
-
+```
+Now you should be ready to install and then load the `microarrayTools` package
+```r
 ## Install microarrayTools package including TAGGITontology, TAGGITplot, and getProbeID
-install_github("bakuhatsu/microarrayTools") # user name/library
+install_github("bakuhatsu/microarrayTools") # syntax for installing from GitHub: username/library
 library(microarrayTools) # To load the package
 ```
-The microarrayTools package gives you the TAGGITontology, TAGGITplot, getProbeID, and venndia functions
+The microarrayTools package gives you the TAGGITontology, TAGGITplot, getProbeID, and venndia functions.  TAGGITontology also makes use of a few C++ functions (requireing Rcpp) to dramatically speed up the analysis.
 
 ### Setting up lists of up-/down-regulated genes for `TAGGITontology()`:
 ```r
