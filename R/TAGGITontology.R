@@ -59,9 +59,7 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
 
   # Create and populate a dataframe with the AT num, symbol, and description
   geneFrame <- myAnnot[getProbeID(geneList),] # see below for example of organization
-  print(geneList[1:4])
-  print(getProbeID(geneList)[1:4])
-  print(geneFrame[1:3,1])
+
   #              ACCNUM        SYMBOL  DESC
   #248961_at     AT5G45650     NA      subtilase family protein
 
@@ -112,9 +110,7 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
     }
     AGIremaining <- setdiff(geneFrame$ACCNUM, AGImatches)
     newFrame <- geneFrame[getProbeID(AGIremaining),]
-    # print(TAGGITguideAGIs[1:4,i]) # ok
-    # print(AGImatches[1:3]) # NAs
-    # print(geneFrame$ACCNUM[1:3]) # NAs
+
     # make this into a number of hits
     if (useSearchTerms) {
 
@@ -142,8 +138,6 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
               searchResultProbes <- row.names(newFrame[searchResults + 1,]) # + 1 because C++ counts from index 0, whereas R counts from index 1
             } else {
               # Source searchTermHits here?
-              #print(newFrame[,3])
-              print(searchTerms)
               searchTermHits <- searchDesc(newFrame[,3], searchTerms) # C++ function with Rcpp
               #searchTermHits <- searchDesc(tolower(newFrame[,3]), tolower(searchTerms)) # C++ function with Rcpp
             }
