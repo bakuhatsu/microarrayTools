@@ -17,7 +17,7 @@ Since GitHub packaged are compiled on your machine to run, you may be prompted t
 # try http:// if https:// URLs are not supported
 source("https://bioconductor.org/biocLite.R")
 ## If you haven't previously installed Bioconductor, run the next line.
-biocLite() # Intalls Bioconductor base packages, will take a long time for a fresh install.  
+biocLite() # Installs Bioconductor base packages, will take a long time for a fresh install.  
 ## To install the ath1121501.db package
 biocLite("ath1121501.db")
 ```
