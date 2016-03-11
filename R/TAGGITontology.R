@@ -103,19 +103,15 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
     Sys.sleep(0.1)
     # update progress bar
     setTxtProgressBar(pb, i)
-    print(length(TAGGITguideAGIs[,i])) # always 179 = not ok
-    print(length(geneFrame$ACCNUM)) # always 200 for this dataset = ok
-    if (length(TAGGITguideAGIs[,i])>length(geneFrame$ACCNUM)) {
-      AGImatches <- base::intersect(TAGGITguideAGIs[,i], geneFrame$ACCNUM)
+    if (length(TAGGITguideAGIs[,i][startsWith(TAGGITguideAGIs[,i], pattern = "A")])>length(geneFrame$ACCNUM)) { #requires gdata for startsWith()
+      AGImatches <- intersect(TAGGITguideAGIs[,i], geneFrame$ACCNUM)
     } else {
-      AGImatches <- base::intersect(geneFrame$ACCNUM, TAGGITguideAGIs[,i])
+      AGImatches <- intersect(geneFrame$ACCNUM, TAGGITguideAGIs[,i])
     }
-    AGIremaining <- base::setdiff(geneFrame$ACCNUM, AGImatches)
+    AGIremaining <- setdiff(geneFrame$ACCNUM, AGImatches)
     newFrame <- geneFrame[getProbeID(AGIremaining),]
-    print(AGImatches)
-    print(AGIremaining)
-    print(getProbeID(AGIremaining))
-    print(newFrame[1:3,1])
+    print(AGImatches[1:3])
+    print(geneFrame$ACCNUM[1:3])
     # make this into a number of hits
     if (useSearchTerms) {
 
