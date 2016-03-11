@@ -111,6 +111,8 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
     }
     AGIremaining <- setdiff(geneFrame$ACCNUM, AGImatches)
     newFrame <- geneFrame[getProbeID(AGIremaining),]
+    print(AGIremaining)
+    print(getProbeID(AGIremaining))
     print(newFrame[1:3,1])
     # make this into a number of hits
     if (useSearchTerms) {
