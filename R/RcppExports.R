@@ -2,18 +2,18 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 contains <- function(str, substr) {
-    .Call('contains', PACKAGE = 'microarrayTools', str, substr)
+    .Call('microarrayTools_contains', PACKAGE = 'microarrayTools', str, substr)
 }
 
 searchDesc <- function(desc, searchTerms) {
-    .Call('searchDesc', PACKAGE = 'microarrayTools', desc, searchTerms)
+    .Call('microarrayTools_searchDesc', PACKAGE = 'microarrayTools', desc, searchTerms)
 }
 
 containsString <- function(str, substr) {
-    .Call('containsString', PACKAGE = 'microarrayTools', str, substr)
+    .Call('microarrayTools_containsString', PACKAGE = 'microarrayTools', str, substr)
 }
 
 searchDescReturnHits <- function(desc, searchTerms) {
-    .Call('searchDescReturnHits', PACKAGE = 'microarrayTools', desc, searchTerms)
+    .Call('microarrayTools_searchDescReturnHits', PACKAGE = 'microarrayTools', desc, searchTerms)
 }
 
