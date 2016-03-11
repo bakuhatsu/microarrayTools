@@ -243,8 +243,8 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
 # #save(x, y, file = "xy.RData")
 # save(GeneSet_UP, GeneSet_DOWN, file = "GeneSetdata.RData")
 
-### To use:
-#data("GeneSetdata") # loads GeneSet_UP and GeneSet_DOWN objects which contain example data.
+# ## To use:
+# data("GeneSetdata") # loads GeneSet_UP and GeneSet_DOWN objects which contain example data.
 #
 # # Make a list containing two lists: 1) up-regulated genes, and 2) down-regulated genes
 # GeneSet <- list()
