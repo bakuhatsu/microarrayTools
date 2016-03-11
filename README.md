@@ -7,6 +7,15 @@ Tools for data analysis of microarray and other transcriptome datasets
 install.packages("devtools") # to allow us to install packages from GitHub
 library(devtools)
 
+## microarrayTools also relies on the ath1121501.db package from Bioconductor 
+## Bioconductor packages cannot be automatically installed like other R dependencies.
+## Install via the code below (if you do not already have bioconductor the first install takes a while)
+## See http://bioconductor.org for more information regarding installing or using Bioconductor packages
+# try http:// if https:// URLs are not supported
+source("https://bioconductor.org/biocLite.R")
+biocLite()
+biocLite("ath1121501.db")
+
 ## Install microarrayTools package including TAGGITontology, TAGGITplot, and getProbeID
 install_github("bakuhatsu/microarrayTools") # user name/library
 library(microarrayTools)
