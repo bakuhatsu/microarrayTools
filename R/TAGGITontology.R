@@ -210,6 +210,7 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
       } else if (i == 27) {
         Unannotated <- myAnnot[listOfHits,]
       }
+      ontologyCounts[,i] <- length(AGImatches) + length(searchResultProbes)
     } else {
       ontologyCounts[,i] <- length(AGImatches) + searchTermHits
     }
