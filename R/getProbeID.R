@@ -26,7 +26,7 @@
 #' x <- c("AT4G25420", "AT5G51810", "AT5G07200", "AT1G30040","AT4G18350", "AT4G19170", "AT3G24220", "AT1G78390")
 #' getProbeID(x)
 getProbeID <- function(gene) { # Can take a single gene or list of genes
-  #require(ath1121501.db)
+  require(ath1121501.db)
   for(i in 1:length(gene)) {
     tryCatch(
       if (grepl("[Aa][Tt][012345MmCc][GgTt][0123456789Ee][0123456789]", gene[i])) {
