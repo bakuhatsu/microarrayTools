@@ -37,7 +37,7 @@
 #' @export
 #'
 #' @examples
-#' # TBD taggit
+#' # TBD
 TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TAGGITontologyHits.xlsx", annotationFile = "default", taggitAGIs = "default", taggitSearchTerms = "default") { # geneList is a list of AT numbers
   # geneList can also be a list of probe_ids (or even *experimental* a list of short names)
   # outputFileName = "none" to prevent saving excel spreadsheet of hits (faster)
