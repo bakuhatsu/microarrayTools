@@ -1,0 +1,20 @@
+Package: microarrayTools
+Type: Package
+Title: Tools for microarray data analysis
+Version: 1.0
+Date: 2015-02-02
+Author: Sven K Nelson
+Maintainer: Sven Nelson <sven.nelson100@email.wsu.edu>
+Description: This package is currently under development.  Currently includes TAGGITontology for TAGGIT seed specific gene ontology, TAGGITplot for plotting, and getProbeID for getting a single of list of probe ids from a list of gene names.  Additionally, the venndia function can be used for looking at overlaps between expression datasets.
+License: MIT license
+LazyData: TRUE
+Imports:
+    Rcpp (>= 0.11.6),
+    ath1121501.db,
+    ggplot2,
+    reshape,
+    scales,
+    utils,
+    WriteXLS
+LinkingTo:
+    Rcpp
