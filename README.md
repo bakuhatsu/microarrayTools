@@ -1,7 +1,7 @@
 # microarrayTools
 Tools for data analysis of microarray and other transcriptome datasets
 
-## Installing and loading the `microarrayTools` package:
+### Installing and loading the `microarrayTools` package:
 ```r
 ## Install and load devtools for loading packages from GitHub
 install.packages("devtools") # to allow us to install packages from GitHub
@@ -13,7 +13,7 @@ library(microarrayTools)
 ```
 The microarrayTools package gives you the TAGGITontology, TAGGITplot, getProbeID, and venndia functions
 
-## Setting up lists of up-/down-regulated genes for `TAGGITontology()`:
+### Setting up lists of up-/down-regulated genes for `TAGGITontology()`:
 ```r
 #### Comparing up-regulated and down-regulated genes for a single comparison ####
 ## Create a vector of probe_ids (ex 248961_at) or AGI identifiers (ex AT5G45650)
@@ -30,7 +30,7 @@ GeneSet_UP <- row.names(subset(topTable(YourData.rma, coef=ComprisonCoef, adjust
 GeneSet_DOWN <- row.names(subset(topTable(YourData.rma, coef=ComprisonCoef, adjust="fdr", 
                       sort.by="B", number=Inf, p.value = 0.05)), logFC<0) # only down-regulated genes
 ```
-## Test run using the provided datasets in `GeneSetdata`:
+### Test run using the provided datasets in `GeneSetdata`:
 ```r
 # Example data is provided, use the following code to load it
 data("GeneSetdata") # loads GeneSet_UP and GeneSet_DOWN objects which contain example data.
@@ -52,7 +52,7 @@ TAGGITplot(GeneSet$UP, GeneSet$DN, GeneSet_TAGGIT_UP, GeneSet_TAGGIT_DN, title =
 ## Export the image: for best results export in EPS (vector) format
 ## For output like the Figure 4 in the publication, export at 400x511 resolution
 ```
-## Comparing sets of overall differentially regulated genes:
+### Comparing sets of overall differentially regulated genes:
 (not separatting up- and down-regulated)
 ```r
 #### Total differentially regulated genes (up and down combined) for two comparisons ####
