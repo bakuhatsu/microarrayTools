@@ -103,7 +103,7 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
     Sys.sleep(0.1)
     # update progress bar
     setTxtProgressBar(pb, i)
-    if (length(TAGGITguideAGIs[,i][startsWith(TAGGITguideAGIs[,i], pattern = "A")])>length(geneFrame$ACCNUM)) { #requires gdata for startsWith()
+    if (length(TAGGITguideAGIs[,i][gdata::startsWith(TAGGITguideAGIs[,i], pattern = "A")])>length(geneFrame$ACCNUM)) { #requires gdata for startsWith()
       AGImatches <- intersect(TAGGITguideAGIs[,i], geneFrame$ACCNUM)
     } else {
       AGImatches <- intersect(geneFrame$ACCNUM, TAGGITguideAGIs[,i])
