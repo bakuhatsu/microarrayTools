@@ -41,7 +41,7 @@ GeneSet$UP <- GeneSet_UP # A list of upregulated genes
 GeneSet$DN <- GeneSet_DOWN # A list of down-regulated genes
 
 ## Create TAGGITontology objects 
-(may take a few minutes, but the built-in progress bar will keep you informed on the progress)
+# (may take a few minutes, but the built-in progress bar will keep you informed on the progress)
 # Returns dataframe for plotting and outputs an excel sheet of hits to the working directory.
 GeneSet_TAGGIT_UP <- TAGGITontology(GeneSet$UP, outputFileName = "TAGGITontologyHits_UP.xlsx")   
 GeneSet_TAGGIT_DN <- TAGGITontology(GeneSet$DN), utputFileName = "TAGGITontologyHits_DN.xlsx")
