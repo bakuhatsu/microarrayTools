@@ -59,6 +59,8 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
 
   # Create and populate a dataframe with the AT num, symbol, and description
   geneFrame <- myAnnot[getProbeID(geneList),] # see below for example of organization
+  print(geneList[1:4])
+  print(getProbeID(geneList)[1:4])
   print(geneFrame[1:3,1])
   #              ACCNUM        SYMBOL  DESC
   #248961_at     AT5G45650     NA      subtilase family protein
@@ -110,9 +112,9 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
     }
     AGIremaining <- setdiff(geneFrame$ACCNUM, AGImatches)
     newFrame <- geneFrame[getProbeID(AGIremaining),]
-    print(TAGGITguideAGIs[1:4,i]) # ok
-    print(AGImatches[1:3]) # NAs
-    print(geneFrame$ACCNUM[1:3]) # NAs
+    # print(TAGGITguideAGIs[1:4,i]) # ok
+    # print(AGImatches[1:3]) # NAs
+    # print(geneFrame$ACCNUM[1:3]) # NAs
     # make this into a number of hits
     if (useSearchTerms) {
 
