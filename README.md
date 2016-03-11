@@ -13,12 +13,12 @@ library(devtools)
 ## See http://bioconductor.org for more information regarding installing or using Bioconductor packages
 # try http:// if https:// URLs are not supported
 source("https://bioconductor.org/biocLite.R")
-biocLite()
+biocLite() # Intalls Bioconductor base packages, will take a long time for a fresh install.  
 biocLite("ath1121501.db")
 
 ## Install microarrayTools package including TAGGITontology, TAGGITplot, and getProbeID
 install_github("bakuhatsu/microarrayTools") # user name/library
-library(microarrayTools)
+library(microarrayTools) # To load the package
 ```
 The microarrayTools package gives you the TAGGITontology, TAGGITplot, getProbeID, and venndia functions
 
