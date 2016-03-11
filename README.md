@@ -63,7 +63,8 @@ GeneSet_TAGGIT_AvsB <- TAGGITontology(GeneSet_AvsB)
 GeneSet_TAGGIT_CvsD <- TAGGITontology(GeneSet_CvsD)
 
 ## Plot the results of the TAGGIT analysis using ggplot2 via the TAGGITplot function
-TAGGITplot(GeneSet_AvsB, GeneSet_CvsD, GeneSet_TAGGIT_AvsB, GeneSet_TAGGIT_CvsD, A = "AvsB", B = "CvsD", title = "")
+TAGGITplot(GeneSet_AvsB, GeneSet_CvsD, GeneSet_TAGGIT_AvsB, GeneSet_TAGGIT_CvsD, A = "AvsB", B = "CvsD", 
+                      title = "")
 ## Export the image: for best results export in EPS (vector) format
 ## For output like Supplemental Fig. S3, export at 400x511 resolution
 ```
