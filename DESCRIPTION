@@ -11,6 +11,7 @@ LazyData: TRUE
 Imports:
     Rcpp (>= 0.11.6),
     ath1121501.db,
+    gdata,
     ggplot2,
     reshape,
     scales,
