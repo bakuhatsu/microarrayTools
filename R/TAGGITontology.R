@@ -133,7 +133,7 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
         } else if (i!=27) {
           if (class(newFrame[,3])=="character" & class(searchTerms)=="character") {
             if (outputFileName != "none") {
-              searchResults <- searchDescReturnHits(newFrame[,3], searchTerms) # C++ function with Rcpp
+              searchResults <- microarrayTools::searchDescReturnHits(newFrame[,3], searchTerms) # C++ function with Rcpp
               #searchResultAGIs <- newFrame[searchResults,1]
               searchResultProbes <- row.names(newFrame[searchResults + 1,]) # + 1 because C++ counts from index 0, whereas R counts from index 1
             } else {
