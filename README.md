@@ -23,8 +23,10 @@ GeneSet_DOWN <- c("AT4G18350", "AT4G19170", "AT3G24220", "AT1G78390", etc...)
 # If you have loaded microarray data into R, you can easily create a list from topTable
 # Please see the Bioconductor documentation for instructions for use of topTable
 # NOTE: Replace "YourData.rma" and "ComparisonCoef" with appropriate input from your data
-GeneSet_UP <- row.names(subset(topTable(YourData.rma, coef=ComprisonCoef, adjust="fdr", sort.by="B", number=Inf, p.value = 0.05)), logFC>0) # only up-regulated genes
-GeneSet_DOWN <- row.names(subset(topTable(YourData.rma, coef=ComprisonCoef, adjust="fdr", sort.by="B", number=Inf, p.value = 0.05)), logFC<0) # only down-regulated genes
+GeneSet_UP <- row.names(subset(topTable(YourData.rma, coef=ComprisonCoef, adjust="fdr", 
+                      sort.by="B", number=Inf, p.value = 0.05)), logFC>0) # only up-regulated genes
+GeneSet_DOWN <- row.names(subset(topTable(YourData.rma, coef=ComprisonCoef, adjust="fdr", 
+                      sort.by="B", number=Inf, p.value = 0.05)), logFC<0) # only down-regulated genes
 
 # Example data is provided, use the following code to load it
 data("GeneSetdata") # loads GeneSet_UP and GeneSet_DOWN objects which contain example data.
@@ -34,8 +36,9 @@ GeneSet <- list()
 GeneSet$UP <- GeneSet_UP # A list of upregulated genes
 GeneSet$DN <- GeneSet_DOWN # A list of down-regulated genes
 
-## Create TAGGITontology objects (may take a few minutes, but the built-in progress bar will keep you informed on the progress)
-# In addition to creating the objects for plotting, this function outputs an excel sheet with hits to the current working directory.
+## Create TAGGITontology objects 
+(may take a few minutes, but the built-in progress bar will keep you informed on the progress)
+# Returns dataframe for plotting and outputs an excel sheet of hits to the working directory.
 GeneSet_TAGGIT_UP <- TAGGITontology(GeneSet$UP, outputFileName = "TAGGITontologyHits_UP.xlsx")   
 GeneSet_TAGGIT_DN <- TAGGITontology(GeneSet$DN), utputFileName = "TAGGITontologyHits_DN.xlsx")
 
