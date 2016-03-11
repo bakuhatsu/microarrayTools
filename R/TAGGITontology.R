@@ -138,6 +138,8 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
               searchResultProbes <- row.names(newFrame[searchResults + 1,]) # + 1 because C++ counts from index 0, whereas R counts from index 1
             } else {
               # Source searchTermHits here?
+              print(newFrame[,3])
+              print(searchTerms)
               searchTermHits <- searchDesc(newFrame[,3], searchTerms) # C++ function with Rcpp
               #searchTermHits <- searchDesc(tolower(newFrame[,3]), tolower(searchTerms)) # C++ function with Rcpp
             }
