@@ -224,20 +224,25 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
   close(pb) # Progress bar complete
   if (outputFileName != "none") {
     #require(WriteXLS)
-    newFile = TRUE
-    if (file.exists(outputFileName)) {
-      writeLines(sprintf("A file named '%s' already exists.  Overwriting file '%s'...", outputFileName, outputFileName))
-      newFile = FALSE
-    }
-    # Write to a multisheet excel file.  Each data frame will make one sheet.
-    WriteXLS::WriteXLS(c("Dormancy.related", "Germination.related", "ABA", "Auxin", "Brassinosteroid", "Cytokinin", "Ethylene", "Gibberellin", "Jasmonic.acid", "Seed.storage.proteins.LEAs", "Inhibition.protein.degrad", "Protein.degradation", "Heat.Shock", "Cell.wall.modification", "Cell.cycle.related", "Cytoskeleton", "Translation.associated", "DNA.repair", "Respiration", "Electron.Transport", "Pentose.phosphate.pathway", "Glycolysis.and.gluconeogenesis", "Krebs.cycle", "Beta.oxidation", "Stress", "Photosynthesis.chloroplast", "Unannotated"), ExcelFileName=outputFileName, row.names=FALSE)
-    #writeLines("\n")
-    if (newFile) {
+    if(!testPerl()) {
+      writeLines(sprintf("Cannot write file '%s' due to a problem with your perl installation. This package outputs an excel file using the WriteXLS package which relies on perl.  Please make sure you have perl installed with the required modules.  For more information, check out the WriteXLS help file by typing ?WriteXLS in the R interpreter.", outputFileName))
+    } else {
+      newFile = TRUE
       if (file.exists(outputFileName)) {
-        writeLines(sprintf("Analysis complete, results have been output to an excel spreadsheet: '%s'", outputFileName)) # outputFileName can include the path
-      } else {
-        writeLines(sprintf("Unable to create the file '%s'.", outputFileName))
+        writeLines(sprintf("A file named '%s' already exists.  Overwriting file '%s'...", outputFileName, outputFileName))
+        newFile = FALSE
       }
+      # Write to a multisheet excel file.  Each data frame will make one sheet.
+      WriteXLS::WriteXLS(c("Dormancy.related", "Germination.related", "ABA", "Auxin", "Brassinosteroid", "Cytokinin", "Ethylene", "Gibberellin", "Jasmonic.acid", "Seed.storage.proteins.LEAs", "Inhibition.protein.degrad", "Protein.degradation", "Heat.Shock", "Cell.wall.modification", "Cell.cycle.related", "Cytoskeleton", "Translation.associated", "DNA.repair", "Respiration", "Electron.Transport", "Pentose.phosphate.pathway", "Glycolysis.and.gluconeogenesis", "Krebs.cycle", "Beta.oxidation", "Stress", "Photosynthesis.chloroplast", "Unannotated"), ExcelFileName=outputFileName, row.names=FALSE)
+      #writeLines("\n")
+      if (newFile) {
+        if (file.exists(outputFileName)) {
+          writeLines(sprintf("Full results were output to the excel file: '%s'", outputFileName)) # outputFileName can include the path
+        } else {
+          writeLines(sprintf("The file '%s' was not written due to unknown circumstances.  Please ensure that your working directory is writable.", outputFileName))
+        }
+      }
+    writeLines("Analysis complete.")
     }
   }
   # returns a data.frame of counts for each TAGGIT category
