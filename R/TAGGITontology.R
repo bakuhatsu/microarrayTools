@@ -227,7 +227,11 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
     # Write to a multisheet excel file.  Each data frame will make one sheet.
     WriteXLS::WriteXLS(c("Dormancy.related", "Germination.related", "ABA", "Auxin", "Brassinosteroid", "Cytokinin", "Ethylene", "Gibberellin", "Jasmonic.acid", "Seed.storage.proteins.LEAs", "Inhibition.protein.degrad", "Protein.degradation", "Heat.Shock", "Cell.wall.modification", "Cell.cycle.related", "Cytoskeleton", "Translation.associated", "DNA.repair", "Respiration", "Electron.Transport", "Pentose.phosphate.pathway", "Glycolysis.and.gluconeogenesis", "Krebs.cycle", "Beta.oxidation", "Stress", "Photosynthesis.chloroplast", "Unannotated"), ExcelFileName=outputFileName, row.names=FALSE)
     #writeLines("\n")
-    writeLines(sprintf("Analysis complete, results have been output to an excel spreadsheet: '%s'", outputFileName)) # outputFileName can include the path
+    if (file.exists(outputFileName)) {
+      writeLines(sprintf("Analysis complete, results have been output to an excel spreadsheet: '%s'", outputFileName)) # outputFileName can include the path
+    } else {
+      writeLines(sprintf("Unable to create the file '%s'.", outputFileName)) # outputFileName can include the path
+    }
   }
   # returns a data.frame of counts for each TAGGIT category
   return(ontologyCounts)
