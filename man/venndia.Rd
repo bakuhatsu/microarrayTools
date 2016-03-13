@@ -21,7 +21,7 @@ venndia(A, B, titleA = "", titleB = "", getdata = FALSE,
 
 \item{getcounts}{Set to \code{TRUE} to return a list the number of genes up- or down-regulated for A-only, AB-overlap, and B-only.  Use $A, $AB, or $B after the function call to specify which if desired. \code{getdata} overrides \code{getcounts} (you can't do both)}
 
-\item{border}{Set \code{TRUE} to add a black border around circles.}
+\item{border}{Set \code{"black"} to add a black border around circles.}
 
 \item{NoAandB}{Set \code{TRUE} to remove the "A" and "B" from the plot.}
 
@@ -42,6 +42,33 @@ A Venn diagram visualization and/or a geneset object containg lists of up- and d
 venndia takes two objects (A and B) each with up- and down-regulated genelists. To make a list containing two lists: 1) up-regulated genes, and 2) down-regulated genes. venndia is currently case-sensitive, so please provide list in all capitals.
 }
 \examples{
-# TBD
+## For the two genesets to compare:
+## Make a list containing two vectors: 1) up-regulated genes, and 2) down-regulated gene
+## Create geneset A
+GeneSetA <- list()
+GeneSetA$UP <- GeneSet_UP[sample(1:200, 100)] # Random set of 100 genes up
+GeneSetA$DN <- GeneSet_DOWN[sample(1:200, 100)] # Random set of 100 genes down
+
+GeneSetB <- list()
+GeneSetB$UP <- GeneSet_UP[sample(1:200, 100)] # Random set of 100 genes up
+GeneSetB$DN <- GeneSet_DOWN[sample(1:200, 100)] # Random set of 100 genes down
+
+## Test the overlap
+venndia(GeneSetA, GeneSetB) # Outputs a graphic
+
+## Get the results of the overlap between A and B
+venndia(GeneSetA,GeneSetB, getdata = TRUE)$AB
+
+## Compare this overlap with a third geneset (GeneSetC).
+GeneSetC <- list()
+GeneSetC$UP <- GeneSet_UP[sample(1:200, 100)] # Random set of 100 genes up
+GeneSetC$DN <- GeneSet_DOWN[sample(1:200, 100)] # Random set of 100 genes down
+
+overlapAB <- venndia(GeneSetA,GeneSetB, getdata = TRUE)$AB
+
+venndia(overlapAB, GeneSetC)
+
+## Prettier version
+venndia(overlapAB, GeneSetC, NoAandB = TRUE, border = "black")
 }
 

@@ -22,6 +22,6 @@ A graphic of a circle
 A function to draw circles.
 }
 \examples{
-# No example
+# No examples
 }
 
