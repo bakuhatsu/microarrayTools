@@ -37,7 +37,26 @@
 #' @export
 #'
 #' @examples
-#' # TBD
+#' # Example data is provided, use the following code to load it
+#' data("GeneSetdata") # loads GeneSet_UP and GeneSet_DOWN objects which contain example data.
+#'
+#' ## Make a list containing two vectors: 1) up-regulated genes, and 2) down-regulated gene
+#' GeneSet <- list()
+#' GeneSet$UP <- GeneSet_UP # A list of upregulated genes
+#' GeneSet$DN <- GeneSet_DOWN # A list of down-regulated genes
+#'
+#' ## Create TAGGITontology objects
+#' # (may take a few minutes, but the built-in progress bar will keep you informed on the progress)
+#' # Returns dataframe for plotting and outputs an excel sheet of hits to the working directory.
+#' GeneSet_TAGGIT_UP <- TAGGITontology(GeneSet$UP, outputFileName = "TAGGITontologyHits_UP.xlsx")
+#' GeneSet_TAGGIT_DN <- TAGGITontology(GeneSet$DN, outputFileName = "TAGGITontologyHits_DN.xlsx")
+#'
+#' ## Plot the results of the TAGGIT analysis using ggplot2 via the TAGGITplot function
+#' # Comparing UP and DOWN regulated genesets
+#' TAGGITplot(GeneSet$UP, GeneSet$DN, GeneSet_TAGGIT_UP, GeneSet_TAGGIT_DN, title = "")
+#' ## Export the image: for best results export in EPS (vector) format
+#' ## For output like Figure 4 in the publication, export at 400x511 resolution
+#'
 TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TAGGITontologyHits.xlsx", annotationFile = "default", taggitAGIs = "default", taggitSearchTerms = "default") { # geneList is a list of AT numbers
   # geneList can also be a list of probe_ids (or even *experimental* a list of short names)
   # outputFileName = "none" to prevent saving excel spreadsheet of hits (faster)
