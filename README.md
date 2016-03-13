@@ -51,10 +51,10 @@ GeneSet_DOWN <- row.names(subset(topTable(YourData.rma, coef=ComprisonCoef, adju
 # Example data is provided, use the following code to load it
 data("GeneSetdata") # loads GeneSet_UP and GeneSet_DOWN objects which contain example data.
 
-## Make a list containing two vectors: 1) up-regulated genes, and 2) down-regulated gene
+## Make a list containing two vectors: 1) up-regulated genes, and 2) down-regulated genes
 GeneSet <- list()
-GeneSet$UP <- GeneSet_UP # A list of upregulated genes
-GeneSet$DN <- GeneSet_DOWN # A list of down-regulated genes
+GeneSet$UP <- GeneSet_UP # A vector of upregulated genes
+GeneSet$DN <- GeneSet_DOWN # A vector of down-regulated genes
 
 ## Create TAGGITontology objects 
 # (may take a few minutes, but the built-in progress bar will keep you informed on the progress)
