@@ -53,6 +53,9 @@ circle <- function(x, y, r, ...) {
 #'
 #' @examples
 #' ## For the two genesets to compare:
+#' #' # Example data is provided, use the following code to load it
+#' data("GeneSetdata") # loads GeneSet_UP and GeneSet_DOWN objects which contain example data.
+#'
 #' ## Make a list containing two vectors: 1) up-regulated genes, and 2) down-regulated gene
 #' ## Create geneset A
 #' GeneSetA <- list()
