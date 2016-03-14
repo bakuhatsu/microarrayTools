@@ -4,7 +4,7 @@ Tools for data analysis of microarray and other transcriptome datasets
 While this package will work with the default Rgui application that comes with R, it is highly recommended to use RStudio for data analysis in R.  Using RStudio will make things like saving output to vector images (like EPS), tiff, or PDF, effortless, and provide code completion, as well as a wealth of other functionalities.  RStudio is freely available for Windows, Mac, or Linux from [https://www.rstudio.com](https://www.rstudio.com). 
 
 ### Installing and loading the `microarrayTools` package:
-Installing through GitHub requires the 'devtools' package, so instructions for instalalling and loading that package are provided below.
+Installing through GitHub requires the `devtools` package, so instructions for installing and loading that package are provided below.
 ```r
 ## Install and load devtools for loading packages from GitHub
 install.packages("devtools") # to allow us to install packages from GitHub
