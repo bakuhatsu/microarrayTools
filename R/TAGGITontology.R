@@ -243,7 +243,7 @@ TAGGITontology <- function(geneList, useSearchTerms = TRUE, outputFileName = "TA
   close(pb) # Progress bar complete
   if (outputFileName != "none") {
     #require(WriteXLS)
-    if(!testPerl()) {
+    if(!WriteXLS::testPerl()) {
       writeLines(sprintf("Cannot write file '%s' due to a problem with your perl installation. This package outputs an excel file using the WriteXLS package which relies on perl.  Please make sure you have perl installed with the required modules.  For more information, check out the WriteXLS help file by typing ?WriteXLS in the R interpreter.", outputFileName))
     } else {
       newFile = TRUE
