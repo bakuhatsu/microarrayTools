@@ -16,6 +16,7 @@ Imports:
     reshape,
     scales,
     utils,
-    WriteXLS
+    WriteXLS,
+    xtable
 LinkingTo:
     Rcpp
